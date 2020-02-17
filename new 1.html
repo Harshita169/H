@@ -1,0 +1,29 @@
+<html>
+<head>
+</head>
+
+<body>
+<button onclick="fun()">Click</button>
+<p id="demo"></p>
+<script>function fun()
+{
+var fruits=["Banana","orange","mango","apple"];
+//document.getElementById("demo").innerHTML = fruits;
+
+fruits.push("lemon");
+fruits.splice(2,0,"kiwi");
+alert(fruits.pop());
+alert(fruits.shift());
+alert(fruits.unshift("Papaya"));
+alert(fruits.slice(1,4));
+var coffee=["expresso","capachino","latte"];
+var all=fruits.concat(coffee);
+
+var citrus = fruits.slice(1,3);
+document.getElementById("demo").innerHTML = fruits + "<br><br>" + citrus;
+document.getElementById("demo").innerHTML = all;
+}
+
+</script>
+</head>
+</html>

@@ -1,0 +1,20 @@
+<html>
+<body>
+<p>click the button </p>
+<button onclick="myFunction()">Click..</button>
+<div id="demo"></div>
+<script>
+function myFunction()
+{
+var x="",i;
+for(i=1;i<=6;i++)
+{
+x=x + "<h" + i + ">Heading " + i +"</h" + i + ">";
+}
+
+document.getElementById("demo").innerHTML=x;
+
+}
+</script>
+</body>
+</html>

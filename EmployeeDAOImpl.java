@@ -41,20 +41,39 @@ public boolean saveEmployee(Employee employee) {
 
 @Override
 public boolean updateEmployee(Employee employee) {
-	String sql="update Employee set name=? where id=?";
-	
+	String sql="update employee set name=? where id=?";
+	try {
+		ps=conn.prepareStatement(sql);
+		ps.setString(1, employee.getName());
+		ps.setInt(2, employee.getId());
+		ps.executeUpdate();
+		return true;
+		
+	} 
+	catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 	return false;
 }
 
 @Override
 public boolean deleteEmployee(Employee employee) {
 	String sql="delete from employee where id=?";
+	try {
+		ps=conn.prepareStatement(sql);
+		ps.setInt(1, employee.getId());
+		ps.executeUpdate();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 	return false;
 }
 
 @Override
 public Employee getEmployeeById(int id) {
- String sql="Select * from employee where id=?";
+ String sql="select * from employee where id=?";
  try {
 		ps=conn.prepareStatement(sql);
 		ps.setInt(1, id);
@@ -62,13 +81,14 @@ public Employee getEmployeeById(int id) {
 		Employee emp=null;
 		while(rs.next())
 		{
+		emp=new Employee();
 		emp.setId(rs.getInt("id"));
 		emp.setName(rs.getString("name"));
 		emp.setAge(rs.getInt("age"));
 		emp.setAddress(rs.getString("address"));
 		emp.setPhone(rs.getLong("phone"));
 		}
-	return null;
+	return emp;
 }catch(SQLException e)
 	{
 	e.printStackTrace();

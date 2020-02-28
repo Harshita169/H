@@ -34,7 +34,14 @@ public static void main(String[] args) {
 	Stream<String> l = Stream.of("C","C++","Java","Python","Angular");
 	List<String> res = l.map(s -> s.concat(" Programming")).collect(Collectors.toList());
 	res.forEach(System.out::println);
-}
+	
+	List<String> defaultSorted=names.stream().sorted().collect(Collectors.toList());
+	System.out.println("Default Sorting");
+	defaultSorted.forEach(System.out::println);
+
+	List<String> customSorting=names.stream().sorted((s1,s2) -> -s1.compareTo(s2)).collect(Collectors.toList());
+	System.out.println("Descending Order Sorting");
+	customSorting.forEach(System.out::println);}
 
 private static void addNames(ArrayList<String> names) 
 {

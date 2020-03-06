@@ -25,6 +25,8 @@ public class Array3 {
 		{
 			System.out.println(arr1[i]);
 		}
+		//System.out.println(arr1[i]);
+		}
 		
 	}
 

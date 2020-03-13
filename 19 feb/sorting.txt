@@ -1,0 +1,18 @@
+package cognizant;
+import java.util.Scanner;
+
+
+public class Sorting 
+{
+public static void main (String[] args)
+{
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter a String: ");
+	 String a = sc.nextLine();
+	 String[] string = a.split("\\s");
+	 for(String c:string)
+	 {
+	 System.out.println(c);  
+	 } 
+}
+}
